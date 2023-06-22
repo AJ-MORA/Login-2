@@ -1,0 +1,14 @@
+<h2>Iniciar Sesion</h2>
+
+<div>
+  <label for="username">Nombre de Usuario:</label>
+  <input type="text" id="username" [(ngModel)]="newUser.username" />
+</div>
+
+<div>
+  <label for="password">Contraseña:</label>
+  <input type="text" id="password" [(ngModel)]="newUser.password" />
+</div>
+
+<button (click)="login()">Iniciar Sesion</button>
+<button (click)="createUser()">Crear Usuario</button>
