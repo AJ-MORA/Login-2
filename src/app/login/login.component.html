@@ -1,14 +1,14 @@
-<h2>Iniciar Sesion</h2>
+<form [formGroup]="loginForm">
+  <div>
+    <label for="username">Username:</label>
+    <input type="text" id="username" formControlName="username" />
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" id="password" formControlName="password" />
+  </div>
+</form>
 
-<div>
-  <label for="username">Nombre de Usuario:</label>
-  <input type="text" id="username" [(ngModel)]="newUser.username" />
-</div>
+<button (click)="login()">Login</button>
+<button (click)="createUser()">Create User</button>
 
-<div>
-  <label for="password">Contraseña:</label>
-  <input type="text" id="password" [(ngModel)]="newUser.password" />
-</div>
-
-<button (click)="login()">Iniciar Sesion</button>
-<button (click)="createUser()">Crear Usuario</button>
