@@ -1,14 +1,38 @@
+<div class="login-container">
+  <img src="/assets/imagen/icono.avif" alt="Login Icon" />
+  <h2>Inicio de sesión</h2>
+</div>
+
 <form [formGroup]="loginForm">
-  <div>
-    <label for="username">Username:</label>
-    <input type="text" id="username" formControlName="username" />
-  </div>
-  <div>
-    <label for="password">Password:</label>
-    <input type="password" id="password" formControlName="password" />
-  </div>
+  <mat-form-field appearance="fill">
+    <mat-label>Username</mat-label>
+    <input matInput formControlName="username" />
+    <mat-error *ngIf="loginForm.get('username')?.invalid">
+      Please enter a username
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Password</mat-label>
+    <input
+    matInput
+    [type]="hidePassword ? 'password' : 'text'"
+    formControlName="password"
+  />
+  <button
+    mat-icon-button
+    matSuffix
+    (click)="hidePassword = !hidePassword"
+    [attr.aria-label]="'Hide password'"
+    [attr.aria-pressed]="hidePassword"
+  >
+    <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+  </button>
+  <mat-error *ngIf="loginForm.get('password')?.invalid">
+    Please enter a password
+  </mat-error>
+  </mat-form-field>
 </form>
+
 
 <button (click)="login()">Login</button>
 <button (click)="createUser()">Create User</button>
-
